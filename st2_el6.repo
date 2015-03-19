@@ -1,0 +1,17 @@
+[st2-el6-latest]
+Name=RHEL $releasever $basearch repository
+baseurl=https://releases.stackstorm.net/el6/latest/
+enabled=0
+gpgcheck=0
+
+[st2-el6-stable]
+Name=RHEL $releasever $basearch repository
+baseurl=https://releases.stackstorm.net/el6/stable/
+enabled=1
+gpgcheck=0
+
+[st2-el6-dependencies]
+Name=RHEL $releasever $basearch repository
+baseurl=https://releases.stackstorm.net/el6/deps/
+enabled=0
+gpgcheck=0
