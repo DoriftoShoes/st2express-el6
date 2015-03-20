@@ -24,7 +24,7 @@ Vagrant.configure(VAGRANT_API_VERSION) do |config|
   # config.vm.synced_folder './vagrant', '/home/maestro/vagrant', owner: 'maestro', group: 'maestro'
 
   #Provision StackStorm
-  config.vm.provision :shell, path: 'vagrant/bootstrap.sh'
+  config.vm.provision :shell, path: 'bootstrap_puppet.sh'
   config.vm.provision :shell, :inline => "puppet apply /vagrant/fullinstall.pp --debug --verbose"
   config.vm.provision :shell, :inline => "st2ctl reload"
   config.vm.provision :shell, :inline => "st2ctl restart"
