@@ -1,0 +1,279 @@
+# CentOS-Base.repo
+#
+# The mirror system uses the connecting IP address of the client and the
+# update status of each mirror to pick mirrors that are updated to and
+# geographically close to the client.  You should use this for CentOS updates
+# unless you are manually picking other mirrors.
+#
+# If the mirrorlist= does not work for you, as a fall back you can try the 
+# remarked out baseurl= line instead.
+#
+#
+
+[base]
+name=CentOS-$releasever - Base
+mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=os
+#baseurl=http://mirror.centos.org/centos/$releasever/os/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+
+#released updates 
+[updates]
+name=CentOS-$releasever - Updates
+mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=updates
+#baseurl=http://mirror.centos.org/centos/$releasever/updates/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+
+#additional packages that may be useful
+[extras]
+name=CentOS-$releasever - Extras
+mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=extras
+#baseurl=http://mirror.centos.org/centos/$releasever/extras/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+
+#additional packages that extend functionality of existing packages
+[centosplus]
+name=CentOS-$releasever - Plus
+mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=centosplus
+#baseurl=http://mirror.centos.org/centos/$releasever/centosplus/$basearch/
+gpgcheck=1
+enabled=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+
+#contrib - packages by Centos Users
+[contrib]
+name=CentOS-$releasever - Contrib
+mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=contrib
+#baseurl=http://mirror.centos.org/centos/$releasever/contrib/$basearch/
+gpgcheck=1
+enabled=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+# CentOS-Debug.repo
+#
+# The mirror system uses the connecting IP address of the client and the
+# update status of each mirror to pick mirrors that are updated to and
+# geographically close to the client.  You should use this for CentOS updates
+# unless you are manually picking other mirrors.
+#
+
+# All debug packages from all the various CentOS-5 releases
+# are merged into a single repo, split by BaseArch
+#
+# Note: packages in the debuginfo repo are currently not signed
+#
+
+[debug]
+name=CentOS-6 - Debuginfo
+baseurl=http://debuginfo.centos.org/6/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-Debug-6
+enabled=0
+# CentOS-Media.repo
+#
+#  This repo can be used with mounted DVD media, verify the mount point for
+#  CentOS-6.  You can use this repo and yum to install items directly off the
+#  DVD ISO that we release.
+#
+# To use this repo, put in your DVD and use it with the other repos too:
+#  yum --enablerepo=c6-media [command]
+#  
+# or for ONLY the media repo, do this:
+#
+#  yum --disablerepo=\* --enablerepo=c6-media [command]
+ 
+[c6-media]
+name=CentOS-$releasever - Media
+baseurl=file:///media/CentOS/
+        file:///media/cdrom/
+        file:///media/cdrecorder/
+gpgcheck=1
+enabled=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+# CentOS-Vault.repo
+#
+# CentOS Vault holds packages from previous releases within the same CentOS Version
+# these are packages obsoleted by the current release and should usually not 
+# be used in production
+#-----------------
+
+[C6.0-base]
+name=CentOS-6.0 - Base
+baseurl=http://vault.centos.org/6.0/os/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+enabled=0
+
+[C6.0-updates]
+name=CentOS-6.0 - Updates
+baseurl=http://vault.centos.org/6.0/updates/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+enabled=0
+
+[C6.0-extras]
+name=CentOS-6.0 - Extras
+baseurl=http://vault.centos.org/6.0/extras/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+enabled=0
+
+[C6.0-contrib]
+name=CentOS-6.0 - Contrib
+baseurl=http://vault.centos.org/6.0/contrib/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+enabled=0
+
+[C6.0-centosplus]
+name=CentOS-6.0 - CentOSPlus
+baseurl=http://vault.centos.org/6.0/centosplus/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+enabled=0
+#-----------------
+
+[C6.1-base]
+name=CentOS-6.1 - Base
+baseurl=http://vault.centos.org/6.1/os/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+enabled=0
+
+[C6.1-updates]
+name=CentOS-6.1 - Updates
+baseurl=http://vault.centos.org/6.1/updates/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+enabled=0
+
+[C6.1-extras]
+name=CentOS-6.1 - Extras
+baseurl=http://vault.centos.org/6.1/extras/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+enabled=0
+
+[C6.1-contrib]
+name=CentOS-6.1 - Contrib
+baseurl=http://vault.centos.org/6.1/contrib/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+enabled=0
+
+[C6.1-centosplus]
+name=CentOS-6.1 - CentOSPlus
+baseurl=http://vault.centos.org/6.1/centosplus/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+enabled=0
+#-----------------
+
+[C6.2-base]
+name=CentOS-6.2 - Base
+baseurl=http://vault.centos.org/6.2/os/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+enabled=0
+
+[C6.2-updates]
+name=CentOS-6.2 - Updates
+baseurl=http://vault.centos.org/6.2/updates/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+enabled=0
+
+[C6.2-extras]
+name=CentOS-6.2 - Extras
+baseurl=http://vault.centos.org/6.2/extras/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+enabled=0
+
+[C6.2-contrib]
+name=CentOS-6.2 - Contrib
+baseurl=http://vault.centos.org/6.2/contrib/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+enabled=0
+
+[C6.2-centosplus]
+name=CentOS-6.2 - CentOSPlus
+baseurl=http://vault.centos.org/6.2/centosplus/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+enabled=0
+#-----------------
+
+[C6.3-base]
+name=CentOS-6.3 - Base
+baseurl=http://vault.centos.org/6.3/os/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+enabled=0
+
+[C6.3-updates]
+name=CentOS-6.3 - Updates
+baseurl=http://vault.centos.org/6.3/updates/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+enabled=0
+
+[C6.3-extras]
+name=CentOS-6.3 - Extras
+baseurl=http://vault.centos.org/6.3/extras/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+enabled=0
+
+[C6.3-contrib]
+name=CentOS-6.3 - Contrib
+baseurl=http://vault.centos.org/6.3/contrib/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+enabled=0
+
+[C6.3-centosplus]
+name=CentOS-6.3 - CentOSPlus
+baseurl=http://vault.centos.org/6.3/centosplus/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+enabled=0
+#-----------------
+
+[C6.4-base]
+name=CentOS-6.4 - Base
+baseurl=http://vault.centos.org/6.4/os/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+enabled=0
+
+[C6.4-updates]
+name=CentOS-6.4 - Updates
+baseurl=http://vault.centos.org/6.4/updates/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+enabled=0
+
+[C6.4-extras]
+name=CentOS-6.4 - Extras
+baseurl=http://vault.centos.org/6.4/extras/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+enabled=0
+
+[C6.4-contrib]
+name=CentOS-6.4 - Contrib
+baseurl=http://vault.centos.org/6.4/contrib/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+enabled=0
+
+[C6.4-centosplus]
+name=CentOS-6.4 - CentOSPlus
+baseurl=http://vault.centos.org/6.4/centosplus/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+enabled=0
+

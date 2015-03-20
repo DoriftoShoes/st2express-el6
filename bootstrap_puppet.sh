@@ -1,9 +1,12 @@
 service iptables stop
 setenforce permissive
- 
+
+mkdir /tmp/oldrepos
+mv /etc/yum.repos.d/* /tmp/oldrepos/
+cp /vagrant/*.repo /etc/yum.repos.d/
+
 rm -rf /var/cache/yum/yumdb/* && rm -f /var/lib/rpm/__db* && rm -Rf /var/cache/yum/x86_64/6Server/* && rpm --rebuilddb && yum clean dbcache && yum clean all
 
-cp /vagrant/st2_el6.repo /etc/yum.repos.d/
 rpm -Uvh http://rbel.frameos.org/rbel6
 rpm -ivh http://yum.puppetlabs.com/puppetlabs-release-el-6.noarch.rpm
 yum clean all
