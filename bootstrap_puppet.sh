@@ -1,6 +1,6 @@
 service iptables stop
 setenforce permissive
- 
+
 rm -rf /var/cache/yum/yumdb/* && rm -f /var/lib/rpm/__db* && rm -Rf /var/cache/yum/x86_64/6Server/* && rpm --rebuilddb && yum clean dbcache && yum clean all
 
 cp /vagrant/st2_el6.repo /etc/yum.repos.d/
